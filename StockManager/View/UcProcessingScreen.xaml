@@ -1,0 +1,49 @@
+﻿<custom:UcControl x:Class="StockManager.View.UcProcessingScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:custom="clr-namespace:StockManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <custom:UcControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../DBResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </custom:UcControl.Resources>
+    <UserControl.Style>
+        <DynamicResource ResourceKey="style_UserControl"/>
+    </UserControl.Style>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".1*"></ColumnDefinition>
+            <ColumnDefinition Width="15*"></ColumnDefinition>
+            <ColumnDefinition Width=".1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <custom:GifImage Width="530" Height="140" x:Name="img_Processing"   ></custom:GifImage>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="lbl_ProcessingMessage" VerticalAlignment="Center" TextAlignment="Center"  FontSize="16" Text="Card printing is under progress" 
+                                ></TextBlock>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</custom:UcControl>

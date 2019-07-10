@@ -1,0 +1,70 @@
+﻿<Window x:Class="StockManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:local="clr-namespace:StockManager" 
+        Title="Stock Manager"  WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown" Focusable="True" ResizeMode="NoResize"
+        WindowState="Normal"  Height="756" Width="768">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../DBResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="65*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+
+
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" Foreground="#00a5c2"  TextAlignment="Center" Name="lbl_Title" Text="Welcome" FontSize="36"></TextBlock>
+            <Grid  Grid.Column="1" Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Name="panel_pages" Grid.Column="1" Grid.Row="1" >
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button  Name="btnHome"  Style="{StaticResource Style_BtnHome}" Click="Btn_Navigation_Click" Tag="Home"  VerticalAlignment="Top" HorizontalAlignment="Stretch"  >
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                        <TextBlock Text="Home" Style="{StaticResource style_navigTextBlock}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   ></TextBlock>
+                    </Grid>
+                </Button>
+                <Button Name="btnBack"  VerticalAlignment="Top"  Style="{StaticResource Style_BtnHome}" Tag="Back" Click="Btn_Navigation_Click"  Grid.Column="1" HorizontalAlignment="Stretch" >
+                    <Grid>
+                        <TextBlock Name="Txt_Back" Text="Back" Style="{StaticResource style_navigTextBlock}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   ></TextBlock>
+                    </Grid>
+                </Button>
+                <Button Name="btnNext" VerticalAlignment="Top" Style="{StaticResource Style_BtnHome}" Click="Btn_Navigation_Click" Tag="Next"  Grid.Column="3"  HorizontalAlignment="Stretch" >
+                    <Grid>
+                        <TextBlock Text="Next" Name="lbl_next" Style="{StaticResource style_navigTextBlock}" VerticalAlignment="Top" HorizontalAlignment="Stretch"   ></TextBlock>
+                    </Grid>
+                </Button>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

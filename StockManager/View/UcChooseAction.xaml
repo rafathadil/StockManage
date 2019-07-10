@@ -1,0 +1,23 @@
+﻿<local:UcControl x:Class="StockManager.View.UcChooseAction"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StockManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <local:UcControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../DBResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:UcControl.Resources>
+    <Grid>
+        <StackPanel VerticalAlignment="Center" >
+            <Button Style="{StaticResource Style_BtnWelcomeScreen}" Click="Button_Click" Tag="ViewItemMaster" Width="200" Height="100" >Add Items</Button>
+            <Button Style="{StaticResource Style_BtnWelcomeScreen}" Click="Button_Click" Tag="ViewStock" Width="200" Height="100" >Manage Stock</Button>
+            <Button Style="{StaticResource Style_BtnWelcomeScreen}" Click="Button_Click" Tag="ViewReport" Width="200" Height="100" >Report</Button>
+        </StackPanel>
+    </Grid>
+</local:UcControl>
