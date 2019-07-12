@@ -102,7 +102,7 @@
                                       ItemsSource="{StaticResource StatusList}" Loaded="CmbBox_Loaded"
                                       SelectedValuePath="Value" DisplayMemberPath= "Value"  SelectionChanged="CmbBox_SelectionChanged"
                                       SelectedValue="{Binding ItemName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                                 SelectedItem="{Binding ItemNoForStock,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedItem="{Binding ItemNoForStock,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                       />
                                 </DataTemplate>
                             </my:DataGridTemplateColumn.CellEditingTemplate>
@@ -114,12 +114,12 @@
                         <my:DataGridTemplateColumn Visibility="Visible"  IsReadOnly="False" Header="Date" Width="*"   >
                             <my:DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Text="{Binding Date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,StringFormat='dd MMM yyyy'}" />
+                                    <TextBlock VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Text="{Binding Date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,StringFormat='MM dd yyyy'}" />
                                 </DataTemplate>
                             </my:DataGridTemplateColumn.CellTemplate>
                             <my:DataGridTemplateColumn.CellEditingTemplate>
                                 <DataTemplate>
-                                    <DatePicker VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Loaded="DatePicker_Loaded" SelectedDate="{Binding Date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,StringFormat='dd MMM yyyy'}" />
+                                    <DatePicker VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Loaded="DatePicker_Loaded" SelectedDate="{Binding Date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,StringFormat='MM dd yyyy'}" />
                                 </DataTemplate>
                             </my:DataGridTemplateColumn.CellEditingTemplate>
                         </my:DataGridTemplateColumn>

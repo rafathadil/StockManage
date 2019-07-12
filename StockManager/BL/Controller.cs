@@ -126,13 +126,17 @@ namespace StockManager.ViewModel
         public ObservableCollection<MStockitem> LoadCollectionData(bool IsForStock = false)
         {
 
+            ClStockitem = new ObservableCollection<MStockitem>();
+
 
             if (IsForStock)
             {
-                return DataLayer.GetDataForDetail();
+                ClStockitem = DataLayer.GetDataForDetail();
             }
             else
-                return DataLayer.GetDataForMaster();
+                ClStockitem = DataLayer.GetDataForMaster();
+
+            return ClStockitem;
 
         }
 
@@ -225,14 +229,14 @@ namespace StockManager.ViewModel
                 case "ViewStock":
                     {
                         ClStockitem = new ObservableCollection<MStockitem>();
-                        ShowProcessingPage();
+                       ShowProcessingPage();
                         Thread ViewStock = new Thread(delegate ()
                         {
                             if (GetItemList().Any())
                             {
 
                                 ClStockitem = LoadCollectionData(true);
-                                UcStocks UcStocks = (UcStocks)UserControls[typeof(UcStocks).Name].Control;
+                                UcStocks UcStocks = UcStocks = (UcStocks)UserControls[typeof(UcStocks).Name].Control;
                                 UcStocks.ClStockitem = ClStockitem;
                                 ShowUserControlOnPanel(UcStocks);
                             }
@@ -312,10 +316,10 @@ namespace StockManager.ViewModel
                             if (DataLayer.InsertItemIntoMaster(UcUpdateItem.CreateNewModel()))
                             {
 
-                                ClStockitem.Add(UcUpdateItem.CreateNewModel());
+                               // ClStockitem.Add(UcUpdateItem.CreateNewModel());
 
                                 UcItemMaster UcItemMaster = (UcItemMaster)UserControls[typeof(UcItemMaster).Name].Control;
-                                UcItemMaster.ClStockitem = ClStockitem;
+                                UcItemMaster.ClStockitem = LoadCollectionData();
                                 ShowUserControlOnPanel(UcItemMaster);
                             }
                             else

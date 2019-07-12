@@ -45,7 +45,7 @@ namespace StockManager.View
             // VDate.Text = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString();
 
             VPrice.Text = "0";
-            VUnit.Text = "0";
+            VUnit.Text = string.Empty;
             VItemName.Text = string.Empty;
         }
 

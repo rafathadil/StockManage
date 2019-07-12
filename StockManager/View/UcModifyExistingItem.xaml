@@ -4,8 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StockManager"
-             mc:Ignorable="d" 
+                 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                 xmlns:Behaviors="clr-namespace:StockManager.View"
+                 mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="300">
+
     <local:UcControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,12 +19,24 @@
     <Grid  Height="600">
         <StackPanel DataContext="{Binding CurrentModel}"  >
             <TextBlock FontSize="25" Margin="5">Please choose an item</TextBlock>
-            <ComboBox Style="{x:Null}"  SelectionChanged="CmbItem_SelectionChanged"  Name="CmbItem" FontSize="25"  Margin="5"></ComboBox>
-            <TextBlock FontSize="25" Margin="3">Price</TextBlock>
+            <ComboBox Style="{x:Null}"  SelectionChanged="CmbItem_SelectionChanged"  Name="CmbItem" FontSize="25"  Margin="5"
+                       SelectedValuePath="ItemName" DisplayMemberPath= "ItemName"
+                       ItemsSource="{Binding ClStockitem}"
+                       SelectedItem="{Binding ItemNo,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                         SelectedValue="{Binding ItemName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                      >
 
-            <TextBox FontSize="25" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Price,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Name="VPrice" Margin="5"></TextBox>
+            </ComboBox>
             <TextBlock FontSize="25" Margin="5">Unit</TextBlock>
             <TextBox FontSize="25" Name="VUnit" Text="{Binding Path=Unit,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="5"></TextBox>
+            <TextBlock FontSize="25" Margin="3">Price</TextBlock>
+
+            <TextBox FontSize="25"  Text="{Binding Path=Price,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,StringFormat=N2}" Name="VPrice" Margin="5">
+                <i:Interaction.Behaviors>
+                    <Behaviors:TextBoxInputBehavior InputMode="DecimalInput"/>
+                </i:Interaction.Behaviors>
+            </TextBox>
+
             <!--<TextBlock Margin="5">Quantity</TextBlock>
             <TextBox PreviewTextInput="NumberValidationTextBox" Name="VQuantity" Margin="5"></TextBox>
             <TextBlock Margin="5">Date</TextBlock>

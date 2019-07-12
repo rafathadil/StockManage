@@ -43,12 +43,20 @@ namespace StockManager.View
             get { return _ClStockitem; }
             set
             {
+                //this.Dispatcher.Invoke((Action)delegate
+                //{
+                    
+               // });
                 _ClStockitem = value;
                 _ClStockitem = new ObservableCollection<MStockitem>(_ClStockitem.OrderBy(i => i.ItemNo));
 
                 ClItemList = new ObservableCollection<string>(_ClStockitem.OrderBy(i => i.ItemNo).Select(i => i.ItemName));
                 OnPropertyChangd(nameof(ClStockitem));
-                StatusList sd = new StatusList();
+                //StatusList sd = new StatusList();
+                //OnPropertyChangd(nameof(StatusList));
+
+                //Keyboard.ClearFocus();
+
             }
         }
 
@@ -82,6 +90,7 @@ namespace StockManager.View
         public EAction ElastAction { get; set; }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Keyboard.ClearFocus();
             if (ClStockitem != null && ClStockitem.Where(i => i.IsChanged).Any())
             {
                 if (ClStockitem.Where(i => i.IsChanged && string.IsNullOrEmpty(i.ItemName)).Any())
@@ -123,20 +132,22 @@ namespace StockManager.View
 
         private void AddItemButtonClick(object sender, RoutedEventArgs e)
         {
-            var CurrentRowCount = McDataGrid.Items.Count;
+            //var CurrentRowCount = McDataGrid.Items.Count;
 
             if (ClStockitem != null && ClStockitem.Any() && ClStockitem.Where(i => string.IsNullOrEmpty(i.ItemName)).Any())
             {
                 MessageBox.Show("Please insert valid data in the last column then procced to add new ones");
                 return;
             }
-            else if(ClStockitem!=null && ClStockitem.Count==0)
+            else if (ClStockitem != null && ClStockitem.Count == 0)
             {
                 MessageBox.Show("Please insert valid data in first columns then procced to add new ones");
                 return;
             }
-            Keyboard.ClearFocus();
-
+            else
+            {
+                Keyboard.ClearFocus();
+            }
             //if(CurrentRowCount.Equals(McDataGrid.Items.Count))
             //{
             //    MessageBox.Show("Please insert valid data in the last column then procced to add new ones");
@@ -220,9 +231,11 @@ namespace StockManager.View
 
         private void CmbBox_Loaded(object sender, RoutedEventArgs e)
         {
+            StatusList SL = new StatusList();
+            ((ComboBox)sender).ItemsSource = SL;
             if (((ComboBox)sender).ItemsSource != null)
             {
-                ((ComboBox)sender).SelectedIndex = 1;
+                ((ComboBox)sender).SelectedIndex = 0;
 
             }
         }
@@ -230,8 +243,14 @@ namespace StockManager.View
 
 
 
-    public class StatusList : Dictionary<int, string>
+    public class StatusList : Dictionary<int, string> , INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChangd(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
 
         public StatusList()
@@ -245,6 +264,8 @@ namespace StockManager.View
                     this.Add(item.ItemNo, item.ItemName);
                 }
             }
+
+            OnPropertyChangd(nameof(StatusList));
 
         }
     }

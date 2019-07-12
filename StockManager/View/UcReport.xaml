@@ -16,6 +16,6 @@
     </local:UcControl.Resources>
     <Grid>
         <my:CrystalReportsViewer HorizontalAlignment="Stretch" Name="crystalReportsViewer1"
-                                 VerticalAlignment="Top" Height="600" Width="600" />
+                                 VerticalAlignment="Top" Height="400" Width="500" />
     </Grid>
 </local:UcControl>

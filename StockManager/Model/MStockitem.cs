@@ -11,6 +11,7 @@ namespace StockManager.Model
         public MStockitem()
         {
             Date = DateTime.Now;
+            Unit = string.Empty;
         }
         public int ItemNo { get; set; }
 

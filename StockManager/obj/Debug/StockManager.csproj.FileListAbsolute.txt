@@ -168,6 +168,8 @@ E:\Gitbhub\StockManage\.git\StockManage\StockManager\bin\Debug\CrystalDecisions.
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\bin\Debug\ShockwaveFlashObjects.dll
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\bin\Debug\stdole.dll
+E:\Gitbhub\StockManage\.git\StockManage\Build\Debug\StockManager.dll
+E:\Gitbhub\StockManage\.git\StockManage\Build\Debug\StockManager.pdb
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\View\MainWindow.g.cs
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\View\UcChooseAction.g.cs
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\View\UcCreateReport.g.cs
@@ -197,3 +199,4 @@ E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\StockManager.cspr
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\StockManager.csproj.CopyComplete
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\StockManager.dll
 E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\StockManager.pdb
+E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\StockManager.csprojAssemblyReference.cache

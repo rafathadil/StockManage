@@ -66,7 +66,7 @@ namespace StockManager.Model
                     cmd.CommandTimeout = 999999999;
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@ItemNo", Value = RequestModel.ItemNo });
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@ItemName", Value = RequestModel.ItemName });
-                    cmd.Parameters.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@Price", Value = RequestModel.Price });
+                    cmd.Parameters.Add(new SqlParameter() { DbType = DbType.Double, ParameterName = "@Price", Value = RequestModel.Price });
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@Unit", Value = RequestModel.Unit });
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@StatementType", Value = EspAction.Insert.ToString() });
                     cmd.Connection = con;
@@ -99,7 +99,7 @@ namespace StockManager.Model
                     cmd.CommandTimeout = 999999999;
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@ItemNo", Value = RequestModel.ItemNo });
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@ItemName", Value = RequestModel.ItemName });
-                    cmd.Parameters.Add(new SqlParameter() { DbType = DbType.Int32, ParameterName = "@Price", Value = RequestModel.Price });
+                    cmd.Parameters.Add(new SqlParameter() { DbType = DbType.Double, ParameterName = "@Price", Value = RequestModel.Price });
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@Unit", Value = RequestModel.Unit });
                     cmd.Parameters.Add(new SqlParameter() { DbType = DbType.String, ParameterName = "@StatementType", Value = EspAction.Update.ToString() });
                     cmd.Connection = con;
@@ -185,11 +185,11 @@ namespace StockManager.Model
 
                             MStockitem.Unit = Convert.ToString(reader["Unit"]);
 
-                            if (!(reader["QTY"] is DBNull))
-                                MStockitem.Quantity = Convert.ToInt64(reader["QTY"]);
+                            //if (!(reader["QTY"] is DBNull))
+                            //    MStockitem.Quantity = Convert.ToInt64(reader["QTY"]);
 
-                            if (!(reader["Date"] is DBNull))
-                                MStockitem.Date = Convert.ToDateTime(Convert.ToString(reader["Date"]));
+                            //if (!(reader["Date"] is DBNull))
+                            //    MStockitem.Date = Convert.ToDateTime(Convert.ToString(reader["Date"]));
 
                           
 

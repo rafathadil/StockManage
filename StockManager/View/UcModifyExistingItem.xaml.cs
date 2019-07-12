@@ -36,7 +36,7 @@ namespace StockManager.View
             TitleText = "Modify Existing Item";
         }
 
-        public void SetCombo(List<string> LsServer)
+        public void SetCombo(ObservableCollection<MStockitem> LsServer)
         {
             this.Dispatcher.Invoke((Action)delegate
             {
@@ -56,7 +56,7 @@ namespace StockManager.View
                 _ClStockitem = value;
                 if (_ClStockitem.Any())
                 {
-                    SetCombo(_ClStockitem.Select(i => i.ItemName).ToList());
+                    SetCombo(_ClStockitem);
                 }
                 else
                 {
@@ -97,18 +97,30 @@ namespace StockManager.View
         {
             if (CmbItem.SelectedItem != null)
             {
-                CurrentModel = GetModel(CmbItem.SelectedItem.ToString());
+                CurrentModel = GetModel(((MStockitem)CmbItem.SelectedItem).ItemNo);
 
             }
+
+        }
+
+        public MStockitem GetModel(int ItemNo)
+        {
+
+            if (ClStockitem != null && ClStockitem.Any() && ClStockitem.Where(i => i.ItemNo.Equals(ItemNo)).Any())
+            {
+                return ClStockitem.Where(i => i.ItemNo.Equals(ItemNo)).FirstOrDefault();
+            }
+
+            return null;
 
         }
 
         public MStockitem GetModel(string ItemName)
         {
 
-            if (ClStockitem.Where(i => i.ItemName.ToLower().Equals(ItemName.Trim().ToLower())).Any())
+            if (ClStockitem != null && ClStockitem.Any() && ClStockitem.Where(i => i.ItemName.ToLower().Equals(ItemName.ToLower())).Any())
             {
-                return ClStockitem.Where(i => i.ItemName.ToLower().Equals(ItemName.Trim().ToLower())).FirstOrDefault();
+                return ClStockitem.Where(i => i.ItemName.Equals(ItemName.ToLower())).FirstOrDefault();
             }
 
             return null;
@@ -117,8 +129,9 @@ namespace StockManager.View
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9.]+");
-            e.Handled = regex.IsMatch(e.Text);
+            // Regex regex = new Regex("[^0-9.]+");
+            Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            e.Handled = !regex.IsMatch(e.Text);
         }
 
 
