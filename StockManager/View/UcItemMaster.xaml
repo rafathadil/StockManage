@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button  Style="{StaticResource Style_BtnHome}" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click" Margin="30" Width="200" Height="100" Tag="AddNewItem">Create</Button>
+                <Button  Style="{StaticResource Style_BtnHome}"  Click="Button_Click" Margin="30"  Tag="AddNewItem">Create</Button>
                 <Button  Style="{StaticResource Style_BtnHome}"  Click="Button_Click" Margin="30" Tag="UpdateExistingitem">Update / Delete</Button>
             </StackPanel>
 

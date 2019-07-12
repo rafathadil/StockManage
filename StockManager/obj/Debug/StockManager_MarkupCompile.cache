@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Rafath\Desktop\Samples\nEW\DatabaseUtility-Solution\StockManager\obj\Debug\
+E:\Gitbhub\StockManage\.git\StockManage\StockManager\obj\Debug\
 StockManager
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 10-1099071121
 
 22808507228
-25592103273
+25337324779
 View\MainWindow.xaml;DBResources.xaml;View\UcChooseAction.xaml;View\UcCreateReport.xaml;View\UcItemMaster.xaml;View\UcModifyExistingItem.xaml;View\UcProcessingScreen.xaml;View\UcReport.xaml;View\UcStocks.xaml;View\UcUpdateItem.xaml;
 
 False
