@@ -123,7 +123,9 @@ namespace StockManager.View
 
         private void AddItemButtonClick(object sender, RoutedEventArgs e)
         {
-            if (ClStockitem != null && ClStockitem.Any() && ClStockitem.Where(i => !i.IsChanged || string.IsNullOrEmpty(i.ItemName)).Any())
+            var CurrentRowCount = McDataGrid.Items.Count;
+
+            if (ClStockitem != null && ClStockitem.Any() && ClStockitem.Where(i => string.IsNullOrEmpty(i.ItemName)).Any())
             {
                 MessageBox.Show("Please insert valid data in the last column then procced to add new ones");
                 return;
@@ -134,6 +136,12 @@ namespace StockManager.View
                 return;
             }
             Keyboard.ClearFocus();
+
+            //if(CurrentRowCount.Equals(McDataGrid.Items.Count))
+            //{
+            //    MessageBox.Show("Please insert valid data in the last column then procced to add new ones");
+            //    return;
+            //}
         }
 
 
